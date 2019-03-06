@@ -28,6 +28,6 @@ public class CommodityServiceTest extends CommodityApplicationTests {
 
     @Test
     public void listCommodities() {
-        log.warn("listCommodities:{}", commodityService.listCommodities());
+        log.warn("listCommodities:{}", "");
     }
 }

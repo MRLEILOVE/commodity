@@ -1,12 +1,9 @@
 package com.leigq.commodity.service;
 
-import com.leigq.commodity.dao.CommodityTypeRepository;
-import com.leigq.commodity.entity.CommodityType;
+import com.leigq.commodity.domain.mapper.CommodityTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 商品类型
@@ -24,9 +21,6 @@ import java.util.List;
 public class CommodityTypeService {
 
     @Autowired
-    private CommodityTypeRepository commodityTypeRepository;
+    private CommodityTypeMapper commodityTypeMapper;
 
-    public List<CommodityType> listCommodityTypes() {
-        return commodityTypeRepository.findAll();
-    }
 }

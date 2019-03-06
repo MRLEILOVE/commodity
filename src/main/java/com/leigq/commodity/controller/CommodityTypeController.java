@@ -1,6 +1,6 @@
 package com.leigq.commodity.controller;
 
-import com.leigq.commodity.entity.CommodityType;
+import com.leigq.commodity.domain.entity.CommodityType;
 import com.leigq.commodity.service.CommodityTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +28,7 @@ public class CommodityTypeController {
 
     @GetMapping("/commodity_types")
     public List<CommodityType> listCommodityTypes() {
-        return commodityTypeService.listCommodityTypes();
+        return null;
     }
 
 }
