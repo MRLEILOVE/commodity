@@ -1,0 +1,25 @@
+# 商品服务端
+spring:
+    application:
+        name: commodity
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/spring_cloud?characterEncoding=utf-8&useSSL=false
+    jpa:
+      show-sql: true
+server:
+    port: 8080
+eureka:
+  client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+  #自定义实例编号
+  instance:
+    instance-id: ${spring.application.name}:${server.port}:@project.version@
+    # 配置使用主机名注册服务
+    hostname: localhost
+
+
+
