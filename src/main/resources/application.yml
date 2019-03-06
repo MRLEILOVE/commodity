@@ -1,3 +1,4 @@
+# 商品服务端
 eureka:
     client:
         service-url:
@@ -5,9 +6,12 @@ eureka:
     instance:
         hostname: localhost
         instance-id: ${spring.application.name}:${server.port}:@project.version@
+# MyBatis配置
 mybatis:
     mapper-locations: classpath*:/mappers/**/*.xml
     type-aliases-package: com.leigq.commodity.domain.mapper
+
+# 服务器配置
 server:
     port: 8080
     tomcat:
@@ -15,6 +19,7 @@ server:
 spring:
     application:
         name: commodity
+    # 数据源、数据库连接池druid配置
     datasource:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKPYsCl3alwZlRb1vKoFdVu0LP3Nm/+vH5iOWxI83pkUbrQc13Lxz/VT3D+H+ziaUpUsA+ZjG4iZGTDJWZnP8kcCAwEAAQ==
         driver-class-name: com.mysql.jdbc.Driver
@@ -35,5 +40,3 @@ spring:
         url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
         username: root
         validationQuery: SELECT 1 FROM DUAL
-    jpa:
-        show-sql: true
