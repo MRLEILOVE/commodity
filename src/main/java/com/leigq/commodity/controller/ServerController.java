@@ -1,13 +1,10 @@
 package com.leigq.commodity.controller;
 
-import com.netflix.discovery.converters.Auto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
- * restTemplate 远程调用服务端简单测试
+ * restTemplate、Feign 远程调用服务端简单测试
  * <p>
  * 创建人：LeiGQ <br>
  * 创建时间：2019-03-07 13:47 <br>
@@ -22,7 +19,7 @@ public class ServerController {
 
     @GetMapping("/messages")
     public String getMsg() {
-        return "调用商品服务2成功。。。";
+        return "调用商品服务1成功。。。";
     }
 
 }
