@@ -16,7 +16,8 @@ mybatis:
 
 # 服务器配置
 server:
-    port: 8080
+    # 建议不要直接写死，可以在VM options中通过-DServer.port=8080配置
+#    port: 8080
     tomcat:
         uri-encoding: UTF-8
 spring:
