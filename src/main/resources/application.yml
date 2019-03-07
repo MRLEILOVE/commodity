@@ -8,8 +8,11 @@ eureka:
         instance-id: ${spring.application.name}:${server.port}:@project.version@
 # MyBatis配置
 mybatis:
-    mapper-locations: classpath*:/mappers/**/*.xml
+    mapper-locations: classpath*:/mapper/**/*.xml
     type-aliases-package: com.leigq.commodity.domain.mapper
+    # 设置自动驼峰命名转换
+    configuration:
+      mapUnderscoreToCamelCase: true
 
 # 服务器配置
 server:
@@ -40,3 +43,10 @@ spring:
         url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
         username: root
         validationQuery: SELECT 1 FROM DUAL
+
+# 分页插件
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql

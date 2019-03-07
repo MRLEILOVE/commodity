@@ -1,4 +1,4 @@
-package com.leigq.commodity.domain.entity.base;
+package com.leigq.commodity.bean;
 
 import lombok.Data;
 

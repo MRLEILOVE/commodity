@@ -1,6 +1,6 @@
 package com.leigq.commodity.domain.entity;
 
-import com.leigq.commodity.domain.entity.base.BaseEntity;
+import com.leigq.commodity.bean.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
