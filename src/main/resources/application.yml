@@ -4,7 +4,8 @@ eureka:
         service-url:
             defaultZone: http://localhost:8761/eureka/
     instance:
-        hostname: commodity
+        # IP
+        hostname: localhost
         instance-id: ${spring.application.name}:${server.port}:@project.version@
 # MyBatis配置
 mybatis:
@@ -17,7 +18,7 @@ mybatis:
 # 服务器配置
 server:
     # 建议不要直接写死，可以在VM options中通过-DServer.port=8080配置
-#    port: 8080
+    port: 8080
     tomcat:
         uri-encoding: UTF-8
 spring:
