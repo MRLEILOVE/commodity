@@ -2,11 +2,17 @@
 eureka:
     client:
         service-url:
-            defaultZone: http://localhost:8761/eureka/
+            defaultZone: http://localhost:8762/eureka/
+        #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
+        registryFetchIntervalSeconds: 5
     instance:
         # IP
         hostname: localhost
         instance-id: ${spring.application.name}:${server.port}:@project.version@
+        #表示eureka client发送心跳给server端的频率，默认为30秒
+        leaseRenewalIntervalInSeconds: 10
+        #健康检查的地址（依赖spring-boot-starter-actuator）
+        health-check-url-path: /actuator/health
 # MyBatis配置
 mybatis:
     mapper-locations: classpath*:/mapper/**/*.xml
@@ -54,3 +60,13 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+# 端点监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
