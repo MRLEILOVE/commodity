@@ -22,6 +22,9 @@ mybatis:
       mapUnderscoreToCamelCase: true
       # 使用mybatis插入自增主键ID的数据后返回自增的ID，配合keyProperty="id"使用
       use-generated-keys: true
+      # spring boot集成mybatis的方式打印sql：https://blog.csdn.net/qq_22194659/article/details/81120712
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 # 服务器配置
 server:
@@ -61,12 +64,30 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
 
-# 端点监控
+# hystrix 配置
+hystrix:
+  command:
+    # 全局设置超时时间
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    # 为此方法单独设置超时时间
+    getMsg:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+
+###############Actuator监控端点##############
+# 全部端口开启, 默认开启的监控路径只有3个, [/actuator/health],[/actuator/info],[/actuator]
+# 参考:<a href="https://blog.csdn.net/l707268743/article/details/80999322">springboot 2.0.3中使用 actuator<a/>
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
   endpoint:
     health:
       show-details: ALWAYS
