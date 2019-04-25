@@ -56,6 +56,13 @@ spring:
         url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
         username: root
         validationQuery: SELECT 1 FROM DUAL
+    # 链路监控
+    zipkin:
+      base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        # 链路监控抽样百分百，默认0.1(10%)
+        probability: 1
 
 # 分页插件
 pagehelper:
@@ -80,6 +87,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 1000
 
+
 ###############Actuator监控端点##############
 # 全部端口开启, 默认开启的监控路径只有3个, [/actuator/health],[/actuator/info],[/actuator]
 # 参考:<a href="https://blog.csdn.net/l707268743/article/details/80999322">springboot 2.0.3中使用 actuator<a/>
@@ -91,3 +99,10 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+
+# 修改日志打印级别
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+
+
