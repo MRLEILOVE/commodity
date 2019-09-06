@@ -71,8 +71,9 @@ public class ServerController {
      * @param postFeignTestVO {@link PostFeignTestVO}
      */
     @PostMapping("/postFeignTest")
-    public void postFeignTest(@RequestBody PostFeignTestVO postFeignTestVO) {
-        log.warn("postFeignTest 远程调用 success [{}]", postFeignTestVO);
+    public PostFeignTestVO postFeignTest(@RequestBody PostFeignTestVO postFeignTestVO) {
+        log.warn("postFeignTest 远程调用成功 success [{}]", postFeignTestVO);
+        return postFeignTestVO;
     }
 
 
