@@ -2,7 +2,7 @@
 eureka:
     client:
         service-url:
-            defaultZone: http://localhost:8762/eureka/
+            defaultZone: http://localhost:8761/eureka/
         #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
         registryFetchIntervalSeconds: 5
     instance:
@@ -37,7 +37,8 @@ spring:
         name: commodity
     # 数据源、数据库连接池druid配置
     datasource:
-        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKPYsCl3alwZlRb1vKoFdVu0LP3Nm/+vH5iOWxI83pkUbrQc13Lxz/VT3D+H+ziaUpUsA+ZjG4iZGTDJWZnP8kcCAwEAAQ==
+        # druid加密命令 java -cp .\druid-1.0.29.jar com.alibaba.druid.filter.config.ConfigTools [your password]
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALfIgF8T336J54w8zFg/rg6IhcgbzgkSLCcHBtYSPve7pdESNujOvR4kAvomaAcIl2z4A1FyJ1JcA1Kc+arPz6UCAwEAAQ==
         driver-class-name: com.mysql.jdbc.Driver
         filters: config,stat,wall,slf4j
         initialSize: 5
@@ -46,7 +47,7 @@ spring:
         maxWait: 60000
         minEvictableIdleTimeMillis: 300000
         minIdle: 5
-        password: kGJF6c+pzVsf49LGs01ss0yijBGXIpNEp20cMkNCQo3ONaeMNPeoW9M89v+nGeiWs95/D2Ms59uGyydDGUWpmg==
+        password: J6penU76h5wtt+Mkpw09yBlbHV3vX04t2THVPcexVIJtKvTiG773yNeH6LITjxPBtaWnJHAEZwItqouk6VYGfw==
         poolPreparedStatements: true
         testOnBorrow: false
         testOnReturn: false

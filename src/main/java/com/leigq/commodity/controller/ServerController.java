@@ -1,11 +1,15 @@
 package com.leigq.commodity.controller;
 
+import com.leigq.commodity.vo.PostFeignTestVO;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.netflix.ribbon.proxy.annotation.Hystrix;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  */
 @RestController
+@Slf4j
 // 处理整个类中的方法异常回调
 //@DefaultProperties(defaultFallback = "defaultFallback")
 public class ServerController {
@@ -60,5 +65,15 @@ public class ServerController {
     public String defaultFallback() {
         return "defaultFallback 请求人数太多，请稍候重试!";
     }
+
+    /**
+     * Feign 远程调用 POST 请求测试
+     * @param postFeignTestVO {@link PostFeignTestVO}
+     */
+    @PostMapping("/postFeignTest")
+    public void postFeignTest(@RequestBody PostFeignTestVO postFeignTestVO) {
+        log.warn("postFeignTest 远程调用 success [{}]", postFeignTestVO);
+    }
+
 
 }
